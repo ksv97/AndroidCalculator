@@ -31,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickDivideButton(View view) {
-        calculate(Operations.DIVIDE);
+        if (getOperandValue() == 0)
+            inputView.setText("Деление на ноль невозможно");
+        else
+            calculate(Operations.DIVIDE);
     }
 
     public void onClickMultiplyButton(View view) {
@@ -39,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int getOperandValue() {
-        return Integer.parseInt(inputView.getText().toString());
+        String inputStr = inputView.getText().toString();
+        return "".equals(inputStr) ? 0 : Integer.parseInt(inputStr);
     }
 
     public void calculate(Operations operation) {
