@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         calculator.calculate(getOperandValue(),operation);
         String result = Integer.toString(calculator.getResult());
         resultView.setText(result);
+        inputView.getText().clear();
     }
 
 }
